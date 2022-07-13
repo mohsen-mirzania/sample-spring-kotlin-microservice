@@ -1,4 +1,4 @@
-FROM maven:3.8.4-openjdk-11 as build
+FROM docker.io/maven:3.8.4-openjdk-11 as build
 WORKDIR /workspace/app
 
 COPY pom.xml .
@@ -9,7 +9,7 @@ COPY . .
 RUN mvn clean package -Dmaven.test.skip=true
 
 
-FROM openjdk:11-buster
+FROM docker.io/openjdk:11-buster
 VOLUME /tmp
 ARG DEPENDENCY=/workspace/app/target/dependency
 COPY --from=build /workspace/app/target/sample-spring-kotlin-microservice-1.4.0.jar app.jar
