@@ -19,7 +19,10 @@ spec:
       containers:
       - name: sleep
         image: ellerbrock/alpine-bash-git
-        command: ["/bin/bash","-c","cd / && ls -a | tee output2.file"]
+        command: ["/bin/bash","-c","cd /data && ls -a"]
+        volumeMounts:
+        - name: vol
+          mountPath: /data
       volumes:
       - name: vol
         persistentVolumeClaim:
