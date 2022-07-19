@@ -13,13 +13,13 @@ spec:
       - name: job-1
         image: ellerbrock/alpine-bash-git
         command: ["/bin/bash","-c","cd /data && git clone https://github.com/mohsen-mirzania/sample-spring-kotlin-microservice.git && cd sample-spring-kotlin-microservice && ls -l && ls -a | tee output.file"]
-      containers:
-      - name: sleep
-        image: ellerbrock/alpine-bash-git
-        command: ["/bin/bash","-c","cd /data && ls -a | tee output2.file"]
         volumeMounts:
         - name: vol
           mountPath: /data
+      containers:
+      - name: sleep
+        image: ellerbrock/alpine-bash-git
+        command: ["/bin/bash","-c","cd / && ls -a | tee output2.file"]
       volumes:
       - name: vol
         persistentVolumeClaim:
