@@ -11,12 +11,10 @@ spec:
       initContainers:
       - name: job-1
         image: alpine/git
-        command: ["git", "clone", "https://github.com/mohsen-mirzania/sample-spring-kotlin-microservice.git",
-                  "&&", "cd", "sample-spring-kotlin-microservice" 
-        ]
-      - name: job-2
-        image: alpine:latest
-        command: ["sleep", "20"]
+        command: ["/bin/bash","-c","git clone https://github.com/mohsen-mirzania/sample-spring-kotlin-microservice.git && cd sample-spring-kotlin-microservice && ls -l"]
+#       - name: job-2
+#         image: alpine:latest
+#         command: ["sleep", "20"]
       containers:
       - name: sleep
         image: alpine:latest
