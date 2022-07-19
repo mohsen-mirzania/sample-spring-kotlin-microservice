@@ -15,6 +15,10 @@ spec:
       - name: job-2
         image: alpine:latest
         command: ["sleep", "20"]
+      containers:
+      - name: sleep
+        image: alpine:latest
+        command: ["sleep", "10"]
       restartPolicy: Never
   backoffLimit: 0
 
