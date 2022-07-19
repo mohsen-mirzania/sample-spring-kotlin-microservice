@@ -8,6 +8,7 @@ metadata:
 spec:
   template:
     spec:
+      restartPolicy: Never
       initContainers:
       - name: job-1
         image: ellerbrock/alpine-bash-git
@@ -16,12 +17,9 @@ spec:
       - name: sleep
         image: ellerbrock/alpine-bash-git
         command: ["/bin/bash","-c","cd /data && ls -a | tee output2.file"]
-      restartPolicy: Never
-      
         volumeMounts:
         - name: vol
           mountPath: /data
-      
       volumes:
       - name: vol
         persistentVolumeClaim:
