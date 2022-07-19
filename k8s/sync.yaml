@@ -11,7 +11,7 @@ spec:
       restartPolicy: Never
       initContainers:
       - name: job-1
-        image: ellerbrock/alpine-bash-git
+        image: bitnami/git
         command: ["/bin/bash","-c","cd /data && git clone https://github.com/mohsen-mirzania/sample-spring-kotlin-microservice.git && cd sample-spring-kotlin-microservice"]
         volumeMounts:
         - name: vol
